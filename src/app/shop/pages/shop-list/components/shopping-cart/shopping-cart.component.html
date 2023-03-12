@@ -1,0 +1,37 @@
+<div  class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+<div class="cart">
+    <div style="display: flex; flex-direction:row; align-items: center; justify-content:center">
+    <h1>Shopping cart</h1> 
+    </div>
+ </div>
+ <div *ngFor="let data of cart">
+    <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+        <strong class="product-name" >{{data.name}}</strong>
+        <div class="description">
+           
+                <div class="col-lg-12 col-md-12 col-sm-6 col-xs-6">
+                    <p style="max-height: 80px ; overflow: hidden;"
+                    > Unit Price: {{data.unit_price}}</p>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-6 col-xs-6">
+                    <p style="max-height: 80px ; overflow: hidden;"
+                    >Quantity: {{data.num}}
+                  
+                </p>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-6 col-xs-6">
+                    <p style="max-height: 80px ; overflow: hidden;"
+                    >Category: {{data.type}}</p>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-6 col-xs-6">
+                    <p style="max-height: 80px ; overflow: hidden;"
+                    >Final Price: {{data.partialPrice}} </p>
+                </div>
+                <img src="assets/icons/btn-delete.png"
+                style="position: absolute; right: -15px; top: -15px; cursor: pointer;" (click)="deleteProduct(data.id)">
+        </div>
+    </div>
+ </div>
+ <h1>Total Price: {{getTotal()}}</h1>
+ <button class="u-btn u-btn--add--submit" (click)="createOrder()">CREATE ORDER</button>
+ </div>
